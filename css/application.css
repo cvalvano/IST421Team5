@@ -1,6 +1,6 @@
 body
 {
-    font-family: "jaf-bernino-sans-comp","Roboto Condensed","Helvetica Neue","Helvetica",Helvetica,Arial,sans-serif;
+    font-family: 'Raleway', sans-serif;
     background: url("../images/main.jpg") no-repeat center;
     background-size: cover;
 }
@@ -27,13 +27,14 @@ body
 }
 #cardContainer
 {
-    background-color: #FFFFFF;
+    background-color: rgba(255,255,255,.8);
 }
 .card
 {
     background-color: #88d7de;
-}
-.card
-{
     text-align: center;
+}
+.card IMG
+{
+    width: 50%;
 }
