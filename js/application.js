@@ -1,53 +1,19 @@
-var contentData = [
-    {
-        "title"     : "Alzheimer's Disease"
-        , "image"   : "alzheimers.jpg"
-        , "leadin"  : ""
-        , "content" : ""
-        , "twitter" : ""
-        , "facebook": ""
-        , "survey"  : ""
-    }
-    ,{
-        "title"     : "Familial Amyloid Polyneuropathy (FAP)"
-        , "image"     : "amyloidosis.jpg"
-        , "leadin"    : ""
-        , "content"   : ""
-        , "twitter"   : ""
-        , "facebook"  : ""
-        , "survey"    : ""
-    }
-    ,{
-        "title"     : "Meniere's Disease"
-        , "image"     : "menieres.jpg"
-        , "leadin"    : ""
-        , "content"   : ""
-        , "twitter"   : ""
-        , "facebook"  : ""
-        , "survey"    : ""
-    }
-    ,{
-        "title"     : "Prurigo Nodularis"
-        , "image"     : "prurigo.png"
-        , "leadin"    : ""
-        , "content"   : ""
-        , "twitter"   : ""
-        , "facebook"  : ""
-        , "survey"    : ""
-    }
-];
+
 
 $(document).ready(function(){
     var cardContainer = $('#cardContainer')
-        ,column = 1;
+        ,column = 1
+        , pageData = contentData;console.log(contentData[0]);
 
-    $.each(contentData, function () {
+    $.each(pageData, function () {
         if(1 === column) {
             cardContainer.append('<div class="section group"></div>');
         }
         cardContainer.children(':last-child').append('<div class="card col span_1_of_3">'
                                                     +'<h3>'+this['title']+'</h3>'
                                                     +'<img src="images/contentImages/'+this['image']+'">'
+                                                    +'<p>'+this['leadin']+'</p>'
+                                                    +'<a href="javascript:toggleContent('+this['id']+')" class="toggleButton">Click to see&nbsp;more</a>'
                                                     +'</div>');
 
         if(3 !== column) {
@@ -78,6 +44,40 @@ function contentResizer() {
         , blankDiv = $('#blankDiv');
 
     background.width(containerWidth);
-    blankDiv.height(background.height()/2);
+    blankDiv.height(background.height()/5);
     $('.card').matchHeight();
+}
+
+function toggleContent (id)
+{
+    var hiddenDiv = $('#hiddenDiv')
+        ,cardContainer = $('#cardContainer')
+        ,facebookText = '';
+
+    if('' != contentData[id]['facebook']) {
+        facebookText = '<iframe src="//www.facebook.com/plugins/likebox.php?href=http%3A%2F%2Fwww.facebook.com%2F'+contentData[id]['facebook']+'&amp;height=590&amp;colorscheme=light&amp;show_faces=true&amp;border_color=%23625DA4&amp;stream=true&amp;header=true"'
+        +'scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:590px;" allowTransparency="true"></iframe>'
+    }
+
+    hiddenDiv.empty();
+    hiddenDiv.append(
+        '<div class="section content">'
+        +'<div class="col span_3_of_3"><h3>'+contentData[id]['title']+'</h3></div>'
+        +'</div><div class="section content">'
+        +'<div class="col span_2_of_3">'+contentData[id]['content']+'</div>'
+        +'<div class="col span_1_of_3">'+facebookText+'</div>'
+        +'</div><div class="section content>"'
+        +'<div class="col span_3_of_3"><a class="toggleButton" href="javascript:toggleBack()">Close</a></div>'
+        +'</div>'
+    );
+    hiddenDiv.slideToggle();
+    cardContainer.slideToggle();
+}
+
+function toggleBack ()
+{
+    var hiddenDiv = $('#hiddenDiv')
+        ,cardContainer = $('#cardContainer');
+    cardContainer.slideToggle();
+    hiddenDiv.slideToggle();
 }
