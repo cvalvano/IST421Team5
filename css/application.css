@@ -29,12 +29,18 @@ body
 {
     background-color: rgba(255,255,255,.8);
     padding-bottom: 25px;
+    -webkit-box-shadow: 0 0 0 2px rgba(255,255,255,.8);
+    -moz-box-shadow: 0 0 0 2px rgba(255,255,255,.8);
+    box-shadow: 0 0 0 2px rgba(255,255,255,.8);
 }
 .card
 {
     background-color: #88d7de;
     text-align: center;
     padding-bottom: 10px;
+    -webkit-box-shadow: 0 0 0 1px rgba(0, 158, 223,.8);
+    -moz-box-shadow: 0 0 0 1px rgba(0, 158, 223,.8);
+    box-shadow: 0 0 0 1px rgba(0, 158, 223,.8);
 }
 .card IMG
 {
