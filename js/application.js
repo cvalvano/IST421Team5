@@ -41,10 +41,12 @@ function contentResizer() {
     var container = $('#container')
         , containerWidth = container.width()
         , background = $('#background')
-        , blankDiv = $('#blankDiv');
+        , blankDiv = $('#blankDiv')
+        ,iframe = $('IFRAME');
 
     background.width(containerWidth);
     blankDiv.height(background.height()/5);
+    iframe.height(background.height() * .8);
     $('.card').matchHeight();
 }
 

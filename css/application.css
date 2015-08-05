@@ -72,3 +72,26 @@ body
 {
     padding-left: 10px;
 }
+IFRAME
+{
+    width: 95%;
+    margin: 0 auto;
+    display: block;
+}
+#foot
+{
+    background: rgba(0, 158, 223, 1);
+    color:#FFFFFF;
+}
+#foot A
+{
+    color:#FFFFFF;
+}
+#foot A:hover
+{
+    color: #a11136;
+}
+.contentRight
+{
+    text-align: right;
+}
